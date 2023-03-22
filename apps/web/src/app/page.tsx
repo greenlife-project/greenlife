@@ -1,13 +1,17 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import {Header} from "@garden/ui";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <>
+          <Header/>
+          <h1 className="text-3xl font-bold underline">
+              Hello world!
+          </h1>
+      </>
     // <main className={styles.main}>
     //   <div className={styles.description}>
     //     <p>
