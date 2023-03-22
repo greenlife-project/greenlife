@@ -1,7 +1,17 @@
-export function TextArea(){
+import {ChangeEvent} from "react";
+
+interface TextAreaProps {
+    value: string
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    placeholder: string
+}
+
+export function TextArea({onChange, placeholder, value}: TextAreaProps){
     return(
-        <textarea id="message" rows={4} maxLength={100}
+        <textarea rows={4} maxLength={100}
+                  onChange={onChange}
+                  value={value}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-custom-white rounded-lg md:w-1/2"
-                  placeholder="Напишите ваш комментарий"></textarea>
+                  placeholder={placeholder}></textarea>
     )
 }

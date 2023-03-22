@@ -42,13 +42,13 @@ export function Header({isLogin = false}: HeaderProps){
                     </div>
                     <div className={["hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"].join(' ')}>
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <MenuLinkDropDown label="Справочник" href="#" links={Array.of({label: "test", link:"test"})}/>
+                            <MenuLinkDropDown label="Справочник" href="/guide" links={Array.of({label: "test", link:"test"})}/>
                             <li className="flex">
                                 <img src={Chat.src} alt={"Chat"} className="mr-2"/>
                                 <MenuLink label={"Сообщество"} href={"#"}/>
                             </li>
                             <li className="flex">
-                                <MenuLink label={"Интернет-магазин"} href={"#"}/>
+                                <MenuLink label={"Интернет-магазин"} href={"/shop"}/>
                             </li>
                             <li className="flex">
                                 <MenuLink label={"Блог"} href={"#"}/>

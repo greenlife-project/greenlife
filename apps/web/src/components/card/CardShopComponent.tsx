@@ -2,8 +2,8 @@
 
 import {CardShop} from "@garden/ui";
 
-export default function CardShopComponent(){
+export default function CardShopComponent({title,imgURL,price, id }:any){
     return(
-        <CardShop/>
+        <CardShop title={title} imgURL={imgURL} price={price} id={id}/>
     )
 }

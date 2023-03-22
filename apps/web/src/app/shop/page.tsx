@@ -1,9 +1,12 @@
 "use client"
 import {BreadCump, GreenArrowRight} from "@garden/ui";
 import CardShopComponent from "@/components/card/CardShopComponent";
+import {api} from "@/utils/api";
 
 
 export default function Page(){
+    const items = api.item.getItems.useQuery();
+
     return(
         <div>
             <div>
@@ -45,10 +48,9 @@ export default function Page(){
                                     <div className="py-2 px-4 sm:py-4 sm:px-6 ">
                                         <div
                                             className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 xl:gap-x-8">
-                                            <CardShopComponent/>
-                                            <CardShopComponent/>
-                                            <CardShopComponent/>
-                                            <CardShopComponent/>
+                                            {items.data && items.data.map((item) => (
+                                                <CardShopComponent title={item.title} price={item.price} imgURL={item.img} id={item.id}/>
+                                            ))}
                                         </div>
                                     </div>
                             </div>

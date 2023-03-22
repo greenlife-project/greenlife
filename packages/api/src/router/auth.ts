@@ -9,7 +9,7 @@ export const authRouter = createTRPCRouter({
         // testing type validations of overridden next-auth Session in @acme/auth package
         return "you can see this secret message!";
     }),
-    verifyToken: publicProcedure.input(z.string().optional())
+    verifyToken: publicProcedure.input(z.string())
         .mutation(async({ctx, input: token}) => {
             const verificationToken = await ctx.prisma.verificationToken.findUnique({
                 where: {

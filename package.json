@@ -13,7 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
+    "eslint-config-garden": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
@@ -22,10 +22,8 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.14",
-    "@garden/database": "*",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7",
-    "twindconfig": "^0.0.1"
+    "tailwindcss": "^3.2.7"
   },
   "packageManager": "npm@8.19.3"
 }

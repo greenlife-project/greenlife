@@ -53,7 +53,7 @@ export const authOptions = {
         signIn: "/login",
     },
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user }:any) {
             if (user) {
                 return {
                     user: user,
@@ -64,7 +64,7 @@ export const authOptions = {
 
             return token;
         },
-        async session({ session, token }) {
+        async session({ session, token }:any) {
             session.user = token.user;
             session.accessToken = token.accessToken;
             session.refreshToken = token.refreshToken;

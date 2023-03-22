@@ -13,7 +13,7 @@ export function Footer(){
                         </Link>
                     </div>
                     <div className="md:flex [&>*]:mr-4">
-                            <MenuLink label={"Онлайн-Магазин"} href={"/"}/>
+                            <MenuLink label={"Онлайн-Магазин"} href={"/shop"}/>
                             <MenuLink label={"О нас"} href={"/"}/>
                             <MenuLink label={"Контакты"} href={"/"}/>
                             <MenuLink label={"Сообщество"} href={"/"}/>
@@ -28,6 +28,14 @@ export function Footer(){
                             <MenuLink label={"+7 (914) 300-61-62"} href={"/"}/>
                         </div>
                     </div>
+                </div>
+                <div className="flex justify-center">
+          <Link className="text-sm text-custom-gray sm:text-center mt-8" href={"/terms"}>Условия пользования
+          </Link>
+                </div>
+                <div className="flex justify-center">
+          <Link className="text-sm text-custom-gray sm:text-center mt-8" href={"/privacy"}>Политика конфидициальности
+          </Link>
                 </div>
                 <div className="flex justify-center">
           <span className="text-sm text-custom-gray sm:text-center mt-8">Все права защищены. <Link href="/"

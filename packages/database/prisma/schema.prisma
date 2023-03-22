@@ -16,6 +16,8 @@ model User {
   payments         Payment[]
   likes            Like[]
   posts            Post[]
+  items            Item[]
+  commentShop      CommentShop[]
   comments         Comment[]
   password         String
   recovery         RecoveryToken?
@@ -54,10 +56,11 @@ model Payment {
 
 model Item {
   id        String   @id @default(cuid())
-  created DateTime @default(now())
+  created   DateTime @default(now())
   title       String @db.VarChar(200)
   description String @db.VarChar(2000)
   updated DateTime?
+  img     String
   price   Int
   Comment CommentShop[]
 
@@ -69,12 +72,12 @@ model CommentShop {
   id      String   @id @default(cuid())
   created DateTime @default(now())
   text String      @db.VarChar(200)
-  post   Post      @relation(fields: [postId], references: [id])
-  postId String
+  item   Item      @relation(fields: [itemId], references: [id])
+  itemId String
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
-  @@index([postId])
+  @@index([itemId])
 }
 
 

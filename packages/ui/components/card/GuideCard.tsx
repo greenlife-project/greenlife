@@ -1,7 +1,4 @@
-'use client'
 import {Button} from "../button/Button";
-import {useState} from "react";
-import {errorToast} from "web/src/utils/utils";
 
 export function GuideCard(){
     return(
@@ -13,17 +10,11 @@ export function GuideCard(){
             </a>
             <div className="px-5 pb-5">
                 <span className="text-xl text-custom-black">Малина садовая</span>
-                <div className="flex items-center justify-between mt-2">
-                    <div className="flex flex-col">
-                        <span className="text-custom-gray">Цена за саженец</span>
-                        <span className="text-main text-2xl font-semibold">390 Р</span>
-                    </div>
-                    <div className="flex flex-col">
-                        <span className="text-custom-gray float-right">Фасовка</span>
-                        <span className="text-custom-идфсл text-xl">1 Сажанец</span>
-                    </div>
+                <div>
+                    <span className="text-base text-custom-gray">10 статей</span>
                 </div>
-                <div className="flex items-center justify-between mt-2">
+
+                <div className="flex flex-col mt-4">
                     <Button label="Руководства" type="light"/>
                     <Button label={"Где купить"}/>
                 </div>

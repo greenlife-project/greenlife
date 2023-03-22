@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ButtonProps {
     label: string;
-    type?: "default" | "empty" ;
+    type?: "default" | "empty" | "light" ;
     onClick?: () => void;
 
 }
@@ -15,6 +15,9 @@ const getTypeClasses = (type: any) => {
         }
         case 'disabled': {
             return ''
+        }
+        case 'light': {
+            return 'focus:outline-none text-main bg-custom-green'
         }
         default: {
             return 'focus:outline-none text-custom-white bg-main hover:text-custom-green'

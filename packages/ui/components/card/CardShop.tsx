@@ -2,22 +2,30 @@
 import {Button} from "../button/Button";
 import {useState} from "react";
 import {errorToast} from "web/src/utils/utils";
+import Link from "next/link";
 
-export function CardShop(){
+interface CardShopProps{
+    id: string
+    title: string
+    imgURL: string
+    price: string
+}
+
+export function CardShop({id, title, imgURL, price}: CardShopProps){
     const [count, setCount] = useState(1);
     return(
 
         <div
             className="w-full max-w-sm bg-custom-white rounded-lg shadow">
-            <a href="#">
-                <img className="p-8 rounded-t-lg" src="https://storage.yandexcloud.net/greenlife/Rectangle%201368.png" />
-            </a>
+            <Link href={`/shop/${id}`}>
+                <img className="p-8 rounded-t-lg" src={imgURL} />
+            </Link>
             <div className="px-5 pb-5">
-                <span className="text-xl text-custom-black">Малина садовая</span>
+                <span className="text-xl text-custom-black">{title}</span>
                 <div className="flex items-center justify-between mt-2">
                     <div className="flex flex-col">
                         <span className="text-custom-gray">Цена за саженец</span>
-                        <span className="text-main text-2xl font-semibold">390 Р</span>
+                        <span className="text-main text-2xl font-semibold">{price} Р</span>
                     </div>
                     <div className="flex flex-col">
                         <span className="text-custom-gray float-right">Фасовка</span>

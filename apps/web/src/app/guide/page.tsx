@@ -1,6 +1,5 @@
-import {BreadCump, GreenArrowRight, GuideHeader} from "@garden/ui";
+import {BreadCump, Button, GreenArrowRight, GuideCard, GuideHeader} from "@garden/ui";
 import GuideHeaderComponent from "@/components/header/GuideHeaderComponent";
-import CardShopComponent from "@/components/card/CardShopComponent";
 
 export default function Page(){
     return(
@@ -32,11 +31,15 @@ export default function Page(){
                                 <div className="py-2 px-4 sm:py-4 sm:px-6 ">
                                     <div
                                         className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 xl:gap-x-8">
-                                        <CardShopComponent/>
-                                        <CardShopComponent/>
-                                        <CardShopComponent/>
-                                        <CardShopComponent/>
+                                        <GuideCard/>
+                                        <GuideCard/>
+                                        <GuideCard/>
+                                        <GuideCard/>
                                     </div>
+                                    <div className="flex justify-center mt-4">
+                                        <Button label={"Показать еще"}/>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
