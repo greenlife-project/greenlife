@@ -2,8 +2,11 @@
 import Image from "next/image";
 import {Button, Input, Logo, MenuLink} from "@garden/ui";
 import {useState} from "react";
+import {toast} from "react-toastify";
+import { useRouter } from 'next/navigation';
 
 export default function Page(){
+    const { push } = useRouter();
     const [phone, setPhone] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -12,7 +15,57 @@ export default function Page(){
     const [checkTerms, setCheckTerms] = useState(false);
 
     const onSubmit = async() => {
-
+        if(!checkData){
+            toast.error('Согласитесь с согласием на обработку данных', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
+        if(!checkTerms){
+            toast.error('Согласитесь с условиями пользовательского соглашения', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
+        const res = await fetch(`/api/auth/signUp`, {method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        body: JSON.stringify({
+            phone,
+            first_name: firstName,
+            last_name: lastName,
+            password: password
+        })})
+        const json = await res.json();
+        if(res.status !== 200){
+            toast.error(json.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
+        push("/auth/verify")
     }
 
     return(
@@ -46,20 +99,21 @@ export default function Page(){
                 />
                 <div className="w-full">
                     <Button
-                        label="Войти"
+                        label="Зарегестрироваться"
+                        onClick={() => onSubmit()}
                     />
                     <MenuLink label={"Есть аккаунт? Войти"} href={"/auth/register"}/>
                 </div>
             </div>
             <div>
-                <input checked id="checked-data" type="checkbox" value={checkData? "checked" : ""}
+                <input id="checked-data" type="checkbox"
                        onChange={event => setCheckData(event.target.checked)}
                        className="w-4 h-4 border-custom-gray rounded"/>
                     <label htmlFor="checked-data"
                            className="ml-2 text-sm font-medium text-custom-gray">Согласен на обработку персональных данных</label>
             </div>
             <div>
-                <input checked id="checked-terms" type="checkbox" value={checkTerms ? "checked" : ""}
+                <input id="checked-terms" type="checkbox"
                        onChange={event => setCheckTerms(event.target.checked)}
                        className="w-4 h-4 border-custom-gray rounded"/>
                 <label htmlFor="checked-terms"

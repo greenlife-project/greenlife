@@ -1,3 +1,5 @@
+import {toast} from "react-toastify";
+
 function makeid(length: number) {
     if (isNaN(length)) {
         throw new TypeError('Length must be a number')
@@ -13,5 +15,17 @@ function makeid(length: number) {
     return string
 }
 
+function errorToast(message: string){
+    toast.error(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+}
 
-export {makeid}
+export {makeid, errorToast}

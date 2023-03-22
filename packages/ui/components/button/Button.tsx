@@ -11,10 +11,13 @@ interface ButtonProps {
 const getTypeClasses = (type: any) => {
     switch (type) {
         case 'empty': {
-            return 'text-main text-sm px-5 py-2.5 text-center mr-2 mb-2'
+            return 'text-main text-sm px-5 py-2.5 text-center mr-2 mb-2 hover:text-secondary'
+        }
+        case 'disabled': {
+            return ''
         }
         default: {
-            return 'focus:outline-none text-white bg-main hover:bg-green-800 focus:ring-4 focus:ring-green-300'
+            return 'focus:outline-none text-custom-white bg-main hover:text-custom-green'
         }
     }
 }

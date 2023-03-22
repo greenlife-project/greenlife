@@ -36,7 +36,7 @@ export const authOptions = {
                     if(!user.phoneVerificated){
                         throw Error("Вы не подвердили свой телефон");
                     }
-                    if(await argon2.verify(user.password, "password")){
+                    if(await argon2.verify(user.password, credentials.password)){
                         return {
                             id: user.id, first_name: user.first_name, last_name: user.last_name,
                             phone: user.phone

@@ -1,8 +1,11 @@
+'use client'
 import Link from "next/link";
 import {Button} from "../button/Button";
-import {Chat, Logo} from "../../index";
+import {Burger, Chat, Logo} from "../../index";
 import {MenuLinkDropDown} from "../menulink/MenuLinkDropDown";
 import {MenuLink} from "../menulink/MenuLink";
+import {useState} from "react";
+import Image from "next/image";
 
 interface HeaderProps {
     //Передается сделан ли вход по дефолту не вошел
@@ -11,6 +14,7 @@ interface HeaderProps {
 
 
 export function Header({isLogin = false}: HeaderProps){
+    const [open, setOpen] = useState(false);
     return(
         <header>
             <nav className="bg-custom-white px-4 lg:px-6 py-2.5">
@@ -19,6 +23,7 @@ export function Header({isLogin = false}: HeaderProps){
                             <img src={Logo.src} alt="logo" className="mr-3 h-6 sm:h-9"/>
                     </Link>
                     <div className="flex items-center lg:order-2">
+                        <div className="hidden md:flex">
                             {isLogin ? <>
                                     <Link href="/profile"><Button label={"Личный кабинет"}/></Link>
 
@@ -27,15 +32,15 @@ export function Header({isLogin = false}: HeaderProps){
                                     <Link href="/auth/login"><Button type="empty" label={"Войти"}/></Link>
                                     <Link href="/auth/register"><Button label={"Регистрация"}/></Link>
                                 </>}
-
-
-                        <button data-collapse-toggle="mobile-menu-2" type="button"
+                        </div>
+                        <button type="button"
                                 className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100"
-                                aria-controls="mobile-menu-2" aria-expanded="false">
+                                aria-controls="mobile-menu-2" aria-expanded="false" onClick={() => setOpen(!open)}>
+                            <img src={Burger.src} alt={""}/>
                             <span className="sr-only">Открыть меню</span>
                         </button>
                     </div>
-                    <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
+                    <div className={["hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"].join(' ')}>
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <MenuLinkDropDown label="Справочник" href="#" links={Array.of({label: "test", link:"test"})}/>
                             <li className="flex">
@@ -50,8 +55,25 @@ export function Header({isLogin = false}: HeaderProps){
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
+            <div className={["absolute w-full bg-custom-white", open ? "" : "hidden"].join(' ') }>
+                <div className="flex justify-center">
+                    <ul className="">
+                        <MenuLinkDropDown label="Справочник" href="#" links={Array.of({label: "test", link:"test"})}/>
+                        <li className="flex">
+                            <MenuLink label={"Сообщество"} href={"#"}/>
+                        </li>
+                        <li className="flex">
+                            <MenuLink label={"Интернет-магазин"} href={"#"}/>
+                        </li>
+                        <li className="flex">
+                            <MenuLink label={"Блог"} href={"#"}/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
     )
 }
