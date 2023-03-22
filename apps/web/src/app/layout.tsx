@@ -1,6 +1,7 @@
 import './globals.css'
 import ToastComponent from "@/components/Toast/ToastComponent";
 import {TRPCProvider} from "@/providers/trpcProvider";
+import {Header} from "@garden/ui";
 
 export const metadata = {
   title: 'GreenLife',
@@ -14,9 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-    <body>
+    <body className="bg-bg">
      <TRPCProvider>
        <ToastComponent/>
+       <Header/>
        {children}
      </TRPCProvider>
     </body>

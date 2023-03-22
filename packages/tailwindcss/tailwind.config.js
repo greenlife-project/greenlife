@@ -15,15 +15,16 @@ module.exports = {
             extrabold: '800',
         },
         colors: {
-            'white': "#ffffff",
-            'black': "#0A1044",
+            'custom-white': "#ffffff",
+            'custom-black': "#0A1044",
             'main': "#088B64",
             'secondary': "#113D3C",
-            'grey': "#314968",
+            'custom-grey': "#314968",
+            'custom-gray': "#999DA6",
             'bg': "#F8F8F8",
-            'green': "#D6FFE1",
-            'stroke': "#F3F3F3",
-            'red': "#EB0C5C"
+            'custom-green': "#D6FFE1",
+            'custom-stroke': "#F3F3F3",
+            'custom-red': "#EB0C5C"
         },
     },
     plugins: [],

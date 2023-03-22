@@ -15,12 +15,12 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LoggedIn: Story = {
-  args: {
-    user: {
-      name: 'Jane Doe',
-    },
-  },
+export const Безрегистрации: Story = {
+
 };
 
-export const LoggedOut: Story = {};
+export const Саккаунта: Story = {
+  args:{
+    isLogin: true
+  }
+};

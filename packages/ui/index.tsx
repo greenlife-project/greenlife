@@ -1,6 +1,10 @@
 import * as React from "react";
 export * from "./components/header/Header";
 export * from "./components/button/Button";
+export * from "./components/input/Input";
+export * from "./components/menulink/MenuLink";
+export * from "./components/menulink/MenuLinkDropDown";
+export * from "./components/input/Input";
 
 export { default as Logo } from "./icons/logo.svg";
 export { default as ArrowRight } from "./icons/Arrow_Right.svg";
