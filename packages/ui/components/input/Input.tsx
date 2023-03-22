@@ -17,7 +17,7 @@ export function Input({onChange, value, placeholder, type = "text"}:InputProps){
         <input type={type}
                onChange={(e) => onChange(e)}
                value={value}
-               className="bg-bg text-custom-gray text-sm rounded-xl block w-full px-2.5 py-4"
+               className="bg-bg text-custom-gray text-sm rounded-xl block w-full px-2.5 py-5"
                placeholder={placeholder} required/>
     )
 }

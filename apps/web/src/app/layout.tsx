@@ -2,6 +2,7 @@ import './globals.css'
 import ToastComponent from "@/components/Toast/ToastComponent";
 import {TRPCProvider} from "@/providers/trpcProvider";
 import HeaderComponent from "@/components/header/HeaderComponent";
+import {Footer} from "@garden/ui"
 
 export const metadata = {
   title: 'GreenLife',

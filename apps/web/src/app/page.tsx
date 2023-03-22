@@ -1,22 +1,20 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import {Header} from "@garden/ui";
+import {CardShop, Header} from "@garden/ui";
+import CardShopComponent from "@/components/card/CardShopComponent";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
       <>
-
-          <h1 className="text-3xl font-bold underline">
-              Hello world!
-          </h1>
+          <CardShopComponent/>
       </>
     // <main className={styles.main}>
     //   <div className={styles.description}>
     //     <p>
     //       Get started by editing&nbsp;
-    //       <code className={styles.code}>src/app/page.tsx</code>
+    //       <code className={styles.code}>src/app/page.tsx.tsx</code>
     //     </p>
     //     <div>
     //       <a

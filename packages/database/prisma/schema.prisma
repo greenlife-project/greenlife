@@ -40,6 +40,8 @@ model VerificationToken {
   @@unique([id, token])
 }
 
+//Shop
+
 model Payment {
   id        String   @id @default(cuid())
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -50,13 +52,40 @@ model Payment {
   paid      Boolean  @default(false)
 }
 
+model Item {
+  id        String   @id @default(cuid())
+  created DateTime @default(now())
+  title       String @db.VarChar(200)
+  description String @db.VarChar(2000)
+  updated DateTime?
+  price   Int
+  Comment CommentShop[]
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+}
+
+model CommentShop {
+  id      String   @id @default(cuid())
+  created DateTime @default(now())
+  text String      @db.VarChar(200)
+  post   Post      @relation(fields: [postId], references: [id])
+  postId String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  @@index([postId])
+}
+
+
+//Forum
+
 model Post {
   id      String   @id @default(cuid())
   created DateTime @default(now())
   title       String @db.VarChar(200)
   description String @db.VarChar(2000)
   updated DateTime?
-  views Int @default(0)
   Comment Comment[]
   tags    Tag[]
   likes Like[]
