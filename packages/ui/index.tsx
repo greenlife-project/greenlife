@@ -19,3 +19,4 @@ export { default as Phone } from "./icons/Phone.svg";
 export { default as Symbol } from "./icons/Symbol.svg";
 export { default as Tools } from "./icons/Tools.svg";
 export { default as Widget } from "./icons/Widget.svg";
+export { default as Burger } from "./icons/burger.svg";
