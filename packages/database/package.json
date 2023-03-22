@@ -1,5 +1,7 @@
 {
-  "name": "database",
+  "name": "@garden/database",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "dependencies": {
     "@prisma/client": "4.11.0"
   },
@@ -7,7 +9,9 @@
     "prisma": "4.11.0"
   },
   "scripts": {
+    "clean": "rm -rf .turbo node_modules",
     "db:generate": "prisma generate",
-    "db:push": "prisma db push --skip-generate"
+    "db:push": "prisma db push --skip-generate",
+    "dev": "prisma studio --port 5556"
   }
 }

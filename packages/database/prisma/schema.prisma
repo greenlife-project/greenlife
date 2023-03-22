@@ -10,10 +10,13 @@ datasource db {
 model User {
   id               String    @id @default(cuid())
   phone            String    @unique
-  phoneVerificated Boolean   @default(true)
+  phoneVerificated Boolean   @default(false)
   first_name       String
   last_name        String
   payments         Payment[]
+  likes            Like[]
+  posts            Post[]
+  comments         Comment[]
   password         String
   recovery         RecoveryToken?
   token            VerificationToken?
@@ -67,8 +70,8 @@ model Post {
 model Comment {
   id      String   @id @default(cuid())
   created DateTime @default(now())
-  text String @db.VarChar(200)
-  post   Post   @relation(fields: [postId], references: [id])
+  text String      @db.VarChar(200)
+  post   Post      @relation(fields: [postId], references: [id])
   postId String
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)

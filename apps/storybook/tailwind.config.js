@@ -1,1 +1,1 @@
-module.exports = require('twindconfig/tailwind.config')
+module.exports = require('@garden/twindconfig/tailwind.config')

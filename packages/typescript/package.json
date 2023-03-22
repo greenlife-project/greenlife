@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@garden/tsconfig",
   "version": "0.0.0",
   "private": true,
   "files": [

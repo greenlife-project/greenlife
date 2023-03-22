@@ -1,7 +1,6 @@
 {
-  "name": "eslint-config-custom",
-  "version": "0.0.0",
-  "main": "index.js",
+  "name": "@garden/twindconfig",
+  "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
     "eslint": "^7.23.0",

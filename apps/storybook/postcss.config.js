@@ -1,1 +1,1 @@
-module.exports = require('twindconfig/postcss.config')
+module.exports = require('@garden/twindconfig/postcss.config')

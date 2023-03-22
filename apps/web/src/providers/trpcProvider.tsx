@@ -5,7 +5,7 @@ import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import { useState } from "react";
 import superjson from 'superjson';
-import {AppRouter} from "@/server/_app";
+import {AppRouter } from "@garden/api";
 
 export const trpc = createTRPCReact<AppRouter>({
     unstable_overrides: {
@@ -28,6 +28,7 @@ export function TRPCProvider(props: { children: React.ReactNode }) {
     const url = `${getBaseUrl()}/api/trpc`;
 
     const [queryClient] = useState(() => new QueryClient());
+
     const [trpcClient] = useState(() =>
         trpc.createClient({
             links: [
@@ -38,6 +39,7 @@ export function TRPCProvider(props: { children: React.ReactNode }) {
                 }),
                 httpBatchLink({ url }),
             ],
+            // @ts-ignore
             transformer: superjson,
         })
     );
