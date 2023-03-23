@@ -124,7 +124,8 @@ model Post {
   description String @db.VarChar(2000)
   updated DateTime?
   Comment Comment[]
-  tags    Tag[]
+  tag    Tag        @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId   String
   likes Like[]
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -156,10 +157,10 @@ model Like {
   @@unique([postId, userId])
 }
 
+//Разделы
 model Tag {
+  id      String   @id @default(cuid())
   tagName String @db.VarChar(20)
-  post   Post   @relation(fields: [postId], references: [id])
-  postId String
-  @@unique([postId, tagName])
+  post   Post[]
 }
 

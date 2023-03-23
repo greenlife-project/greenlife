@@ -1,14 +1,48 @@
+"use client";
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import {CardShop, Header} from "@garden/ui";
+import {Loader, MainHeader, GuiceCardMain} from "@garden/ui";
 import CardShopComponent from "@/components/card/CardShopComponent";
+import Link from "next/link";
+import {api} from "@/utils/api";
+import ItemsComponent from "@/components/profile/items/ItemsComponent";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+    const guides = api.guide.getGuideount.useQuery(4)
+    const items = api.item.getItemsCount.useQuery(3)
+    if(guides.isLoading || items.isLoading){
+        return <Loader/>
+    }
   return (
       <>
-
+            <MainHeader/>
+          <div className="mx-auto container mt-4">
+              <div>
+                  <div className="float-right">
+                      <Link href={"/profile/additems"} className="text-sm px-5 py-2.5 mr-2 mb-2 font-medium rounded-lg focus:outline-none text-main">Все</Link>
+                  </div>
+                  <h1 className="text-custom-black font-bold text-xl">Популярное в справочнике</h1>
+                  <div className="py-2 px-4 sm:py-4 sm:px-6 ">
+                      <div
+                          className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                          {guides.data && guides.data.map((guide:any) => (
+                              <GuiceCardMain title={guide.title} id={guide.id} img={guide.img}/>
+                          ))}
+                      </div>
+                  </div>
+              </div>
+              <h1 className="text-custom-black font-bold text-xl">Популярное в интернет-магазине</h1>
+              <div className="py-2 px-4 sm:py-4 sm:px-6 ">
+                  <div
+                      className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                      {items.data && items.data.map((item:any) => (
+                          <CardShopComponent title={item.title} id={item.id} imgURL={item.img} price={item.price}/>
+                      ))}
+                  </div>
+              </div>
+          </div>
       </>
     // <main className={styles.main}>
     //   <div className={styles.description}>

@@ -1,7 +1,6 @@
-export default function CommunityHeader(){
-    return(
-        <div>
+"use client";
+import {CommunityHeader} from "@garden/ui";
 
-        </div>
-    )
+export default function CommunityHeaderComponent(){
+    return <CommunityHeader/>
 }

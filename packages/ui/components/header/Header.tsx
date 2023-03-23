@@ -45,7 +45,7 @@ export function Header({isLogin = false}: HeaderProps){
                             <MenuLinkDropDown label="Справочник" href="/guide" links={Array.of({label: "test", link:"test"})}/>
                             <li className="flex">
                                 <img src={Chat.src} alt={"Chat"} className="mr-2"/>
-                                <MenuLink label={"Сообщество"} href={"#"}/>
+                                <MenuLink label={"Сообщество"} href={"/community"}/>
                             </li>
                             <li className="flex">
                                 <MenuLink label={"Интернет-магазин"} href={"/shop"}/>
@@ -63,10 +63,10 @@ export function Header({isLogin = false}: HeaderProps){
                     <ul className="">
                         <MenuLinkDropDown label="Справочник" href="#" links={Array.of({label: "test", link:"test"})}/>
                         <li className="flex">
-                            <MenuLink label={"Сообщество"} href={"#"}/>
+                            <MenuLink label={"Сообщество"} href={"/community"}/>
                         </li>
                         <li className="flex">
-                            <MenuLink label={"Интернет-магазин"} href={"#"}/>
+                            <MenuLink label={"Интернет-магазин"} href={"/shop"}/>
                         </li>
                         <li className="flex">
                             <MenuLink label={"Блог"} href={"#"}/>

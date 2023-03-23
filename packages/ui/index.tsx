@@ -18,6 +18,12 @@ export * from "./components/card/LongCard";
 export * from "./components/card/StepCard";
 export * from "./components/card/MyGuideCard";
 export * from "./components/card/MyCardShop";
+export * from "./components/header/CommunityHeader";
+export * from "./components/card/CommunityCard";
+export * from "./components/table/TableHead";
+export * from "./components/table/Topic";
+export * from "./components/header/MainHeader";
+export * from "./components/card/GuiceCardMain";
 
 export { default as Logo } from "./icons/logo.svg";
 export { default as ArrowRight } from "./icons/Arrow_Right.svg";
