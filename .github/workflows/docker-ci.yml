@@ -27,4 +27,4 @@ jobs:
         with:
           push: true
           tags: ghcr.io/greenlife-project/greenlife:latest
-          file: apps/web/DockerFile
+          file: apps/web/Dockerfile
