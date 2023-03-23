@@ -13,7 +13,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        placeholder: 'Кнопка',
-        value: ""
+        value: 'Кнопка',
+        type: "text",
+        placeholder: "Просто напиши"
     },
 };
