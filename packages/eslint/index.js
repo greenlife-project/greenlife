@@ -10,6 +10,8 @@ const config = {
   rules: {
     "@next/next/no-html-link-for-pages": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
+    "@next/next/no-img-element": "off",
+    "react/jsx-key": 'off',
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
