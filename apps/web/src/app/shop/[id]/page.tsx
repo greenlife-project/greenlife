@@ -12,7 +12,6 @@ export default function Page({params: { id }}:any){
         return "Loading..."
     }
     const data = item.data
-    console.log(data)
     return(
         <div className="my-2">
             <div>
@@ -21,7 +20,9 @@ export default function Page({params: { id }}:any){
 // @ts-ignore */}
                     <BreadCump links={Array.of({label: "Интернет-Магазин", href: "/shop"}, {label: "Каталог товаров", href: "/shop"}, {label: data.title, href: "/shop/"+data.id})}/>
                     <div>
-
+                        {/*
+// @ts-ignore */}
+                        <BigCard img={data.img} name={`${data.first_name} ${data.last_name}`} title={data.title} description={data.description} price={data.price}/>
                         <div className="mt-2">
                             <h1>
                                 Комментарии
