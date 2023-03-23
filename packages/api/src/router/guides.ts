@@ -2,20 +2,19 @@ import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { z } from "zod";
 import {itemCommentSchema} from "../validations/item";
 
-export const itemRouter = createTRPCRouter({
-    getItems: publicProcedure.query(({ ctx }) => {
-        return ctx.prisma.item.findMany({
+export const guideRouter = createTRPCRouter({
+    getGuides: publicProcedure.query(async ({ ctx }) => {
+        return await ctx.prisma.guide.findMany({
             select: {
-                price: true,
-                img: true,
                 id: true,
                 title: true,
+                img: true,
             }
         });
     }),
-    getItem: publicProcedure.input(z.string().optional())
+    getGuide: publicProcedure.input(z.string().optional())
         .query(({ctx, input: id}) => {
-            const item = ctx.prisma.item.findUnique({
+            const guide = ctx.prisma.guide.findUnique({
                 where:{
                     id: id
                 },
@@ -26,7 +25,7 @@ export const itemRouter = createTRPCRouter({
                             last_name: true,
                         },
                     },
-                    Comment: {
+                    comments: {
                         select: {
                             user: {
                                 select: {
@@ -38,21 +37,21 @@ export const itemRouter = createTRPCRouter({
                             created: true
                         }
                     },
-                    price: true,
-                    description: true,
-                    title: true,
-                    img: true,
                     id: true,
+                    title: true,
+                    description: true,
+                    steps: true,
+                    img: true,
                 }
             })
-            if(!item){
+            if(!guide){
                 return {}
             }
-            return item
+            return guide
         }),
-    addCommentItem: protectedProcedure.input(itemCommentSchema)
+    addCommentGuide: protectedProcedure.input(itemCommentSchema)
         .mutation(async ({ctx, input}) => {
-            await ctx.prisma.commentShop.create({
+            await ctx.prisma.guideComment.create({
                 data: {
                     userId: input.userId,
                     text: input.text,
@@ -60,10 +59,19 @@ export const itemRouter = createTRPCRouter({
                 }
             })
         }),
-    getItemsCount: publicProcedure.input(z.number())
+    getGuideount: publicProcedure.input(z.number())
         .query(async ({ctx, input: count}) => {
-            return await ctx.prisma.item.findMany({
+            return await ctx.prisma.guide.findMany({
                 take: count,
             })
+        }),
+    getMyGuide: protectedProcedure.query(async({ctx}) => {
+        const id = ctx.session.user.id
+        const guides = await ctx.prisma.guide.findMany({
+            where: {
+                userId: id
+            }
         })
+        return guides
+    })
 });

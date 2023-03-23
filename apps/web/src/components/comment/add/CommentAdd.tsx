@@ -23,6 +23,7 @@ export default function CommentAdd({id}:{id: string}){
             errorToast("Войдите аккаунт, чтобы оставить комментарий");
             return
         }
+        //@ts-ignore
         addComment.mutate({id: id, text: text, userId: session.user.id})
     }
 

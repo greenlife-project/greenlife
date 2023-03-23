@@ -1,8 +1,10 @@
 import './globals.css'
 import ToastComponent from "@/components/Toast/ToastComponent";
 import {TRPCProvider} from "@/providers/trpcProvider";
+import {RecoilProvider} from "@/providers/recoilProvider";
 import HeaderComponent from "@/components/header/HeaderComponent";
 import {Footer} from "@garden/ui"
+import {RecoilRoot} from "recoil";
 
 export const metadata = {
   title: 'GreenLife',
@@ -20,7 +22,9 @@ export default function RootLayout({
      <TRPCProvider>
        <ToastComponent/>
        <HeaderComponent/>
-       {children}
+       <RecoilProvider>
+         {children}
+       </RecoilProvider>
        <Footer/>
      </TRPCProvider>
     </body>

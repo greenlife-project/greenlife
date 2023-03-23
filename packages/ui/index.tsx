@@ -13,6 +13,9 @@ export * from "./components/comment/Comment";
 export * from "./components/textarea/TextArea";
 export * from "./components/header/GuideHeader";
 export * from "./components/card/GuideCard";
+export * from "./components/loader/Loader";
+export * from "./components/card/LongCard";
+export * from "./components/card/StepCard";
 
 export { default as Logo } from "./icons/logo.svg";
 export { default as ArrowRight } from "./icons/Arrow_Right.svg";

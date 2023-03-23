@@ -1,8 +1,8 @@
+import {Loader} from "@garden/ui";
+
 export default function Loading(){
     //TODO SPINNER
     return(
-        <div>
-            Loading...
-        </div>
+        <Loader/>
     )
 }

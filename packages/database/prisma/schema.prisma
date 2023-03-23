@@ -17,7 +17,9 @@ model User {
   likes            Like[]
   posts            Post[]
   items            Item[]
+  guides           Guide[]
   commentShop      CommentShop[]
+  commentsGuide    GuideComment[]
   comments         Comment[]
   password         String
   recovery         RecoveryToken?
@@ -80,6 +82,38 @@ model CommentShop {
   @@index([itemId])
 }
 
+model Guide {
+  id          String   @id @default(cuid())
+  steps       StepGuide[]
+  description String @db.VarChar(2000)
+  title       String
+  img         String
+  comments    GuideComment[]
+  verifyed    Boolean  @default(false)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+}
+
+model StepGuide {
+      id          String   @id @default(cuid())
+      img         String
+      title       String
+      description String @db.VarChar(2000)
+      guide       Guide     @relation(fields: [guideId], references: [id], onDelete: Cascade)
+      guideId     String
+}
+
+model GuideComment {
+  id      String   @id @default(cuid())
+  created DateTime @default(now())
+  text String      @db.VarChar(200)
+  guide   Guide      @relation(fields: [guideId], references: [id])
+  guideId String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  @@index([guideId])
+}
 
 //Forum
 

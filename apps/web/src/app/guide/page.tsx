@@ -1,7 +1,14 @@
+"use client";
 import {BreadCump, Button, GreenArrowRight, GuideCard, GuideHeader} from "@garden/ui";
 import GuideHeaderComponent from "@/components/header/GuideHeaderComponent";
+import {api} from "@/utils/api";
 
 export default function Page(){
+    const guides = api.guide.getGuides.useQuery();
+    if(!guides.data){
+        return "Loading...."
+    }
+
     return(
         <>
                 <GuideHeaderComponent/>
@@ -31,15 +38,13 @@ export default function Page(){
                                 <div className="py-2 px-4 sm:py-4 sm:px-6 ">
                                     <div
                                         className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 xl:gap-x-8">
-                                        <GuideCard/>
-                                        <GuideCard/>
-                                        <GuideCard/>
-                                        <GuideCard/>
+                                        {guides.data.map((guide) => (
+                                            <GuideCard title={guide.title} id={guide.id} img={guide.img}/>
+                                        ))}
                                     </div>
                                     <div className="flex justify-center mt-4">
                                         <Button label={"Показать еще"}/>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

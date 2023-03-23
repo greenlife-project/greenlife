@@ -1,24 +1,25 @@
 "use client";
-import {BigCard, BreadCump, Button, Comment, GreenArrowRight, TextArea} from "@garden/ui";
-import CardShopComponent from "@/components/card/CardShopComponent";
+import {BigCard, LongCard, BreadCump, Button, Comment, GreenArrowRight, TextArea} from "@garden/ui";
 import {api} from "@/utils/api";
 import CommentAdd from "@/components/comment/add/CommentAdd";
+import CardShopComponent from "@/components/card/CardShopComponent";
 
 
 export default function Page({params: { id }}:any){
     const item = api.item.getItem.useQuery(id);
-    if(!item.data){
+    const items = api.item.getItemsCount.useQuery(4);
+    if(!item.data || !items.data){
         return "Loading..."
     }
     const data = item.data
     console.log(data)
     return(
-        <div className="">
+        <div className="my-2">
             <div>
                 <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <BreadCump links={Array.of({label: "Интернет-Магазин", href: "/shop"}, {label: "Каталог товаров", href: "/shop"}, {label: data.title, href: "/shop/"+data.id})}/>
                     <div>
-                        <BigCard title={data.title} img={data.img} price={data.price} name={`${data.user.first_name} ${data.user.last_name}`} description={data.description}/>
+
                         <div className="mt-2">
                             <h1>
                                 Комментарии
@@ -47,14 +48,12 @@ export default function Page({params: { id }}:any){
                             <h1>
                                 Вам также могут понравиться
                             </h1>
-                            <div className={"mt-2"}>
-                                {/*<TextArea/>*/}
-                            </div>
-                            <div className={"mt-2"}>
-                                <Button label={"Отправить комментарий"}/>
+                            <div className={"mt-2 md:flex [&>*]:mr-2"}>
+                                {items.data.map((item) => (
+                                    <CardShopComponent title={item.title} price={item.price} imgURL={item.img} id={item.id}/>
+                                ))}
                             </div>
                         </div>
-
                     </div>
                 </main>
             </div>
