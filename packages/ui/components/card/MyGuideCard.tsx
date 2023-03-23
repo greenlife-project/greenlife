@@ -19,7 +19,7 @@ export function MyGuideCard({title, id, img}: MyGuideCardProps){
             <div className="px-5 pb-5">
                 <span className="text-xl text-custom-black">{title}</span>
 
-                <div className="flex mt-4">
+                <div className="flex md:flex-row flex-col mt-4">
                     <Link href={`/guide/${id}`}><Button label="Читать"/></Link>
                     <Link href={"#"}> <Button label={"Редактировать"}  type="light"/></Link>
                 </div>

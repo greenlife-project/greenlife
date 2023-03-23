@@ -67,7 +67,7 @@ export const guideRouter = createTRPCRouter({
         }),
     getMyGuide: protectedProcedure.query(async({ctx}) => {
         //@ts-ignore
-        const id = ctx.session.user.id
+        const id = ctx.session.user.id;
         const guides = await ctx.prisma.guide.findMany({
             where: {
                 userId: id

@@ -65,5 +65,15 @@ export const itemRouter = createTRPCRouter({
             return await ctx.prisma.item.findMany({
                 take: count,
             })
+        }),
+    getMyItems: protectedProcedure.query(async({ctx}) => {
+        //@ts-ignore
+        const id = ctx.session.user.id;
+        const items = await ctx.prisma.item.findMany({
+            where: {
+                userId: id
+            }
         })
+        return items
+    })
 });
