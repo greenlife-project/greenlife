@@ -12,7 +12,6 @@
 - [Docker](https://docker.com/)
 - [Prisma](hhttps://www.prisma.io/)
 - [Github Actions](https://github.com/features/actions)
-- []
 - [NextAuth](https://next-auth.js.org)
 
 ### Команда - UNIT
