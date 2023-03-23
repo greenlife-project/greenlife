@@ -19,7 +19,14 @@ export default async function handler(
             res.status(501).json({message: "Пароль не найден"});
             return
         }
+        if(phone.startsWith("8")){
+            phone[0] = "7"
+        }
         const token = await createUser(phone, password, first_name, last_name );
+        if(!token){
+            res.status(501).json({message: "Вы уже зарегестрированы"});
+            return
+        }
 
         const res_sms = await fetch(
             `https://smsc.ru/sys/send.php?login=${process.env.LOGIN_SMS}&psw=${process.env.PASSWORD_SMS}&phones=${phone}&mes=${encodeURIComponent(`Введите код подтверждения ${token}`)}&call=1`);
