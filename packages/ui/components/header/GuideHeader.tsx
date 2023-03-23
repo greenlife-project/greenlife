@@ -13,7 +13,8 @@ export function GuideHeader(){
                     <h1 className="text-custom-white text-2xl">Справочник</h1>
                     <form className="flex items-center">
                         <div className="relative w-full mr-2">
-                            
+                            {/*
+// @ts-ignore */}
                             <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={"Как посадить землянику"}/>
                         </div>
                         <Button label={"Искать в справочнике"}/>

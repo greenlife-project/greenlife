@@ -22,9 +22,9 @@ export default function Page({params: { id }}:any){
                         <div className="grid md:grid-cols-12 gap-5 p-4 m-2">
 
                             <div className="lg:px-8 md:col-span-9">
-                                <LongCard name="sdsd" description={"sdsd"}/>
+                                {/*<LongCard name="sdsd" description={"sdsd"}/>*/}
                                 <div className="mt-4">
-                                    <StepCard title={"1 Шаг"} description={"sdsd"}/>
+                                    {/*<StepCard title={"1 Шаг"} description={"sdsd"}/>*/}
                                 </div>
 
                                 <div className="mt-2">

@@ -6,6 +6,8 @@ import {stepsState} from "@/states/guide";
 import {errorToast} from "@/utils/utils";
 import {api} from "@/utils/api";
 
+
+
 export default function AddGuide(){
     const [name, setName] = useState("");
     const [difficult, setDifficult] = useState("easy")
@@ -97,9 +99,12 @@ function Step({index}: any){
             <h1 className="text-main text-2xl">{index} Шаг</h1>
             <div className="mt-2">
                 <label className="block mb-2 text-sm font-medium text-custom-black">Название шага</label>
+                {/*
+                // @ts-ignore */}
                 <Input
-                    placeholder="Введите название"
                     value={steps[index-1].name}
+                    placeholder="Введите название"
+
                     onChange={(e) => {
                         let newSteps = JSON.parse(JSON.stringify(steps));
                         newSteps[index-1].name = e.target.value
@@ -109,6 +114,8 @@ function Step({index}: any){
             </div>
             <div className="mt-2">
                 <label className="block mb-2 text-sm font-medium text-custom-black">Описание шага</label>
+                {/*
+// @ts-ignore */}
                 <TextArea value={steps[index-1].description} onChange={(e)=>{
                     let newSteps = JSON.parse(JSON.stringify(steps));
                     newSteps[index-1].description = e.target.value
@@ -117,9 +124,11 @@ function Step({index}: any){
             </div>
             <div className="mt-2">
                 <label className="block mb-2 text-sm font-medium text-custom-black">Ссылка на картинку</label>
+                {/*
+// @ts-ignore */}
                 <Input
-                    placeholder="Ссылка"
                     value={steps[index-1].link}
+                    placeholder="Ссылка"
                     onChange={(e) => {
                         let newSteps = JSON.parse(JSON.stringify(steps));
                         newSteps[index-1].link = e.target.value
@@ -131,6 +140,8 @@ function Step({index}: any){
                 <Button
                     label="Удалить"
                     onClick={() => {
+                        {/*
+// @ts-ignore */}
                         setSteps(steps.filter((step) => step.index !== index))
                     }}
                 />

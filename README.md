@@ -1,10 +1,10 @@
-# Turborepo starter
+# GreenLife
 
-This is an official npm starter turborepo.
+Помогает людям делать свой огород еще лучше 
 
-## What's inside?
+## Какой стек
 
-This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following packages/apps:
+- Turborepo
 
 ### Apps and Packages
 

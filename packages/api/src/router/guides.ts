@@ -55,7 +55,7 @@ export const guideRouter = createTRPCRouter({
                 data: {
                     userId: input.userId,
                     text: input.text,
-                    itemId: input.id,
+                    guideId: input.id,
                 }
             })
         }),
@@ -66,6 +66,7 @@ export const guideRouter = createTRPCRouter({
             })
         }),
     getMyGuide: protectedProcedure.query(async({ctx}) => {
+        //@ts-ignore
         const id = ctx.session.user.id
         const guides = await ctx.prisma.guide.findMany({
             where: {

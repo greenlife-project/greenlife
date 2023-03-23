@@ -16,7 +16,7 @@ export default function Page(){
             <div>
                 <h1 className="text-custom-black font-bold text-xl">Статьи</h1>
                 <div className="py-2 px-4 sm:py-4 sm:px-6 ">
-                    {guides.data.length === 0 ? "Тут пока пусто" : ""}
+                    {guides.data && guides.data.length === 0 ? "Тут пока пусто" : ""}
                 </div>
             </div>
 

@@ -2,7 +2,7 @@ import {ChangeEvent} from "react";
 
 interface TextAreaProps {
     value: string
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
     placeholder: string
     half?: boolean
 }
