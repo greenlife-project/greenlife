@@ -1,16 +1,17 @@
 "use client";
+//GG вообще в голову ничего не идет
 
 import {Button, TextArea} from "@garden/ui";
 import {useState} from "react";
 import {api} from "@/utils/api";
 import {errorToast} from "@/utils/utils";
 
-export default function CommentAddItem({id}:{id: string}){
+export default function CommentAddGuild({id}:{id: string}){
     const { data: session } = api.auth.getSession.useQuery();
-    const addComment = api.item.addCommentItem.useMutation({
+    const addComment = api.guide.addCommentGuide.useMutation({
         async onSuccess() {
             setText("")
-            await api.item.getItem.useQuery(id).refetch()
+            await api.guide.getGuide.useQuery(id).refetch()
         }
     });
     const[text, setText] = useState("");

@@ -1,5 +1,5 @@
 "use client";
-import {BigCard, LongCard, BreadCump, Button, Comment, GreenArrowRight, TextArea} from "@garden/ui";
+import {BigCard, BreadCump, Button, Comment } from "@garden/ui";
 import {api} from "@/utils/api";
 import CommentAdd from "@/components/comment/add/CommentAdd";
 import CardShopComponent from "@/components/card/CardShopComponent";

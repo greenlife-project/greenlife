@@ -59,7 +59,7 @@ export default async function handler(
                     guideId: guide.id,
                     img: step.link,
                     description: step.description,
-                    title: step.title,
+                    title: step.name,
                 }
             })
         }

@@ -4,7 +4,6 @@ import argon2 from "argon2";
 import prisma from "@/lib/prisma/prisma"
 import {makeid} from "@/utils/utils";
 
-
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -27,13 +26,8 @@ export default async function handler(
             res.status(501).json({message: "Вы уже зарегестрированы"});
             return
         }
-
         const res_sms = await fetch(
             `https://smsc.ru/sys/send.php?login=${process.env.LOGIN_SMS}&psw=${process.env.PASSWORD_SMS}&phones=${phone}&mes=${encodeURIComponent(`Введите код подтверждения ${token}`)}&call=1`);
-        console.log(`https://smsc.ru/sys/send.php?login=
-            ${process.env.LOGIN_SMS}
-            &psw=${process.env.PASSWORD_SMS}&phones=
-            ${phone}&mes=${encodeURI(`Введите код подтверждения ${token}`)}&call=1`)
         if(res_sms.status != 200){
             res.status(501).json({message: "Пока регистрация не доступна"});
             return
