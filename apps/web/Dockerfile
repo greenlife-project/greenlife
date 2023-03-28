@@ -3,7 +3,7 @@ RUN apk add --no-cache libc6-compat
 RUN apk update
 # Set working directory
 WORKDIR /app
-RUN yarn global add turbo
+RUN yarn global add turbo@1.8.5
 COPY . .
 RUN turbo prune --scope=web --docker
 
@@ -17,7 +17,6 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/package-lock.json ./package-lock.json
-RUN npm install turbo-linux-64
 RUN npm install
 
 # Build the project
