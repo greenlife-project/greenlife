@@ -50,27 +50,35 @@ export function Header({isLogin = false}: HeaderProps){
                             <li className="flex">
                                 <MenuLink label={"Интернет-магазин"} href={"/shop"}/>
                             </li>
-                            <li className="flex">
-                                <MenuLink label={"Блог"} href={"#"}/>
-                            </li>
+                            {/*<li className="flex">*/}
+                            {/*    <MenuLink label={"Блог"} href={"#"}/>*/}
+                            {/*</li>*/}
                         </ul>
                     </div>
 
                 </div>
             </nav>
-            <div className={["absolute w-full bg-custom-white", open ? "" : "hidden"].join(' ') }>
+            <div className={["absolute w-full bg-custom-white z-50", open ? "" : "hidden"].join(' ') }>
                 <div className="flex justify-center">
                     <ul className="">
-                        <MenuLinkDropDown label="Справочник" href="#" links={Array.of({label: "test", link:"test"})}/>
+                        <MenuLinkDropDown label="Справочник" href="/guide" links={Array.of({label: "test", link:"test"})}/>
                         <li className="flex">
                             <MenuLink label={"Сообщество"} href={"/community"}/>
                         </li>
                         <li className="flex">
                             <MenuLink label={"Интернет-магазин"} href={"/shop"}/>
                         </li>
-                        <li className="flex">
-                            <MenuLink label={"Блог"} href={"#"}/>
-                        </li>
+                        {isLogin ? <>
+                                <Link href="/profile"><Button label={"Личный кабинет"}/></Link>
+
+                            </> :
+                            <>
+                                <Link href="/auth/login"><Button type="empty" label={"Войти"}/></Link>
+                                <Link href="/auth/register"><Button label={"Регистрация"}/></Link>
+                            </>}
+                        {/*<li className="flex">*/}
+                        {/*    <MenuLink label={"Блог"} href={"#"}/>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>
             </div>

@@ -40,3 +40,9 @@ export { default as Tools } from "./icons/Tools.svg";
 export { default as Widget } from "./icons/Widget.svg";
 export { default as Burger } from "./icons/burger.svg";
 export { default as GreenArrowRight } from "./icons/greearrowright.svg";
+
+
+export { default as Logo1 } from "./logos/logo1.png";
+export { default as Logo2 } from "./logos/logo2.png";
+export { default as Logo3 } from "./logos/logo3.png";
+export { default as Logo4 } from "./logos/logo4.png";

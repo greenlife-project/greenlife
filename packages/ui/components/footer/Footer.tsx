@@ -1,4 +1,4 @@
-import {Logo, Mail, MenuLink, Phone} from "../../index";
+import {Logo, Mail, MenuLink, Phone, Logo1, Logo2, Logo3,Logo4} from "../../index";
 import Link from "next/link";
 
 export function Footer(){
@@ -11,12 +11,22 @@ export function Footer(){
                             <img src={Logo.src} className="h-8 mr-3"
                                  alt="Logo"/>
                         </Link>
+                        <div className="flex">
+                            <div className="md:flex">
+                                <img src={Logo2.src} className="h-16 mr-3"/>
+                                <img src={Logo1.src} className="h-16 mr-3"/>
+                            </div>
+                            <div className="md:flex">
+                                <img src={Logo3.src} className="h-16 mr-3"/>
+                                <img src={Logo4.src} className="h-16 mr-3"/>
+                            </div>
+                        </div>
                     </div>
                     <div className="md:flex [&>*]:mr-4">
                             <MenuLink label={"Онлайн-Магазин"} href={"/shop"}/>
-                            <MenuLink label={"О нас"} href={"/"}/>
-                            <MenuLink label={"Контакты"} href={"/"}/>
-                            <MenuLink label={"Сообщество"} href={"/"}/>
+                            <MenuLink label={"Справочник"} href={"/guide"}/>
+                            <MenuLink label={"Сообщество"} href={"/community"}/>
+                            {/*<MenuLink label={"Сообщество"} href={"/"}/>*/}
                      </div>
                     <div className="md:flex">
                         <div className="flex items-center mr-2">
@@ -25,7 +35,7 @@ export function Footer(){
                         </div>
                         <div className="flex items-center">
                             <img src={Phone.src}/>
-                            <MenuLink label={"+7 (914) 300-61-62"} href={"/"}/>
+                            <MenuLink label={"+7 (800) 555-35-35"} href={"/"}/>
                         </div>
                     </div>
                 </div>
